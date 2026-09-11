@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "serve": "node serve.js"
+    "serve": "node serve.js",
+    "test": "echo \"No tests configured for this static website.\" && exit 0"
   }
 }
