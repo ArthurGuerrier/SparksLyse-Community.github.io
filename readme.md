@@ -1,4 +1,4 @@
-# Lyse.AI
+# Site web de Lyse.AI
 
 Site vitrine et prototype de chat pour Lyse.AI, un projet autour de l'intelligence artificielle et de l'open source. Le dépôt contient principalement un export statique réalisé avec Framer, complété par quelques scripts JavaScript et un serveur Node.js minimal pour le développement local.
 
