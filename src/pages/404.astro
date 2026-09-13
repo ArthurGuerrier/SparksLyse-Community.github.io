@@ -1,0 +1,17 @@
+---
+import FadeInBlurWord from "../components/animation/FadeInBlurWord";
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout
+  title="Lyse.AI, l'IA Open-Source"
+  description="Page Trou Noir"
+  ogImage="images/ogImage.jpg"
+>
+<main class="flex flex-col items-center justify-center text-center text-white px-4" >
+    <FadeInBlurWord as="h1" text="404 - Ce chemin n'a pas été trouvé" className="text-[36px] font-bold" client:load />
+
+    <FadeInBlurWord as="p" text="La page est dans le trou noir, mais vous pouvez revenir au lobby" className="text-white/45 text-[16px] mt-4" client:load />
+</main>
+</Layout>

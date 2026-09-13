@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
 
 interface FAQItem {
   id: number;
@@ -49,16 +50,43 @@ export default function FAQ() {
     );
   };
 
+  const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08,
+            },
+        },
+    };
+
+    const wordVariants: Variants = {
+        hidden: {
+            y: "10%",
+            opacity: 0,
+        },
+        visible: {
+            y: '0%',
+            opacity: 1,
+            transition: {
+                duration: 1,
+                ease: [0.2, 0.65, 0.3, 0.9],
+            },
+        },
+    };
+
   return (
     <div className="max-w-5xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+      <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start" initial="hidden"
+        whileInView="visible">
         {FAQS.map((faq) => {
           const isOpen = openIds.includes(faq.id);
 
           return (
-            <div
+            <motion.div
               key={faq.id}
               className="border overflow-hidden transition-colors duration-200" style={{ borderColor: "rgba(255, 255, 255, 0.12)" }}
+              variants={wordVariants}
             >
               <button
                 onClick={() => toggleFAQ(faq.id)}
@@ -83,10 +111,10 @@ export default function FAQ() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }

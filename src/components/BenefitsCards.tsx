@@ -1,3 +1,5 @@
+import { motion, type Variants } from "framer-motion";
+
 export default function BenefitsCards({
   benefits,
 }: {
@@ -362,10 +364,35 @@ export default function BenefitsCards({
     </svg>,
   ];
 
+  const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08,
+            },
+        },
+    };
+
+    const wordVariants: Variants = {
+        hidden: {
+            y: "10%",
+            opacity: 0,
+        },
+        visible: {
+            y: '0%',
+            opacity: 1,
+            transition: {
+                duration: 1,
+                ease: [0.2, 0.65, 0.3, 0.9],
+            },
+        },
+    };
+
   return (
-    <>
+    <motion.div variants={containerVariants} initial="hidden" whileInView="visible" className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
       {benefits.map((feat, idx) => (
-        <article key={`${feat.title}`}>
+        <motion.article key={`${feat.title}`} variants={wordVariants}>
           <div className="pb-5.25 pt-5.25 pl-5 pr-5 bg-[#121212] border" style={{ borderColor: "rgba(255, 255, 255, 0.12)" }}>
             <div className="border w-16 h-16 rounded-full text-white flex items-center justify-center" style={{ borderColor: "rgba(255, 255, 255, 0.16)" }}>
               <p className="w-6 h-6 flex items-center justify-center">
@@ -377,8 +404,8 @@ export default function BenefitsCards({
               {feat.description}
             </p>
           </div>
-        </article>
+        </motion.article>
       ))}
-    </>
+    </motion.div>
   );
 }
