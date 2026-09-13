@@ -1,8 +1,33 @@
-export default function FeatureTab({
-  features,
-}: {
-  features: { title: string; description: string; image: string }[];
-}) {
+import { Image } from "astro:assets";
+import featureImage1 from "../assets/images/feature1.jpg"
+import featureImage2 from "../assets/images/feature2.jpg"
+import featureImage3 from "../assets/images/feature3.jpg"
+import featureImage4 from "../assets/images/feature4.jpg"
+import type { ImageMetadata } from "astro";
+
+export default function FeatureTab() {
+  const features: { title: string; description: string; image: ImageMetadata }[] = [
+    {
+      title: "Création de contenu",
+      description: "Demandez-lui des stories, posts, et idées",
+      image: featureImage1,
+    },
+    {
+      title: "Aide au codage",
+      description: "Résoudez les problèmes de votre code",
+      image: featureImage2,
+    },
+    {
+      title: "Recherche",
+      description: "Recherchez les infos importantes",
+      image: featureImage3,
+    },
+    {
+      title: "Productivité",
+      description: "Restez concentré avec votre assistant",
+      image: featureImage4,
+    },
+  ];
   const changeTabFeature = (e: React.MouseEvent) => {
     const allTab = document.getElementById("feature-content")?.children;
     const allTabHeader = document.getElementById("feature-header")?.children;
@@ -47,7 +72,7 @@ export default function FeatureTab({
             hidden={idx !== 0}
           >
             <img
-              src={feat.image}
+              src={feat.image.src}
               alt={feat.title}
               width={516}
               height={396.8}

@@ -83,7 +83,7 @@ export default function CarouselTestimonials() {
       </Swiper>
       <div 
         id="custom-pagination" 
-        className="flex justify-center items-center gap-2 mt-6 [&>.swiper-pagination-bullet]:w-6 [&>.swiper-pagination-bullet]:h-6 [&>.swiper-pagination-bullet]:bg-white [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer [&>.swiper-pagination-bullet-active]:bg-white! [&>.swiper-pagination-bullet-active]:w-6! [&>.swiper-pagination-bullet-active]:h-6!"
+        className="flex justify-center items-center gap-2 mt-6 [&>.swiper-pagination-bullet]:w-2 [&>.swiper-pagination-bullet]:h-2 [&>.swiper-pagination-bullet]:bg-white [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer [&>.swiper-pagination-bullet-active]:bg-white! [&>.swiper-pagination-bullet-active]:w-4! [&>.swiper-pagination-bullet-active]:h-4!"
         />
       <div className="flex items-center gap-2">
           <button

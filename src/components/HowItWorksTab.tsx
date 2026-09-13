@@ -1,13 +1,34 @@
-export default function HowItWorksTab({
-  howitworks,
-}: {
-  howitworks: {
+import howItWorksImage1 from "../assets/images/howitworks1.jpg"
+import howItWorksImage2 from "../assets/images/feature1.jpg"
+import howItWorksImage3 from "../assets/images/howitworks3.jpg"
+import type { ImageMetadata } from "astro";
+
+export default function HowItWorksTab() {
+  const howitworks: {
     title: string;
     description: string;
     logo: number;
-    image: string;
-  }[];
-}) {
+    image: ImageMetadata;
+  }[] = [
+    {
+      title: "1 – Le prompt",
+      description: "Ecrivez votre prompt (question)",
+      logo: 0,
+      image: howItWorksImage1,
+    },
+    {
+      title: "2 – Réflexion",
+      description: "L'IA réfléchi pour vous répondre",
+      logo: 1,
+      image: howItWorksImage2,
+    },
+    {
+      title: "3 - Réponse",
+      description: "Sa réflexion est devant vous",
+      logo: 2,
+      image: howItWorksImage3,
+    },
+  ];
   const changeTabHowitworks = (e: React.MouseEvent) => {
     const allTab = document.getElementById("howitworks-content")?.children;
     const allTabHeader = document.getElementById("howitworks-header")?.children;
@@ -204,13 +225,12 @@ export default function HowItWorksTab({
           <img
             id={`${feat.title}-howitworks-content`}
             alt={feat.title}
-            src={feat.image}
+            src={feat.image.src}
             key={feat.title}
             hidden={idx !== 0}
             width={516}
             height={396.8}
             className="rounded-sm"
-            loading="lazy"
           />
         ))}
       </div>

@@ -1,0 +1,24 @@
+---
+import LiveImage from "../components/LiveImage";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="L'Entraînement en temps réel"
+  description="De Lyse.AI, quand l'IA rencontre l'Open-Source"
+  ogImage="images/ogImage.jpg"
+>
+  <main class="items-center text-center text-white" >
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        "
+    >
+      <LiveImage imageUrl="https://marvideo.fr/lyseai-api/status.php" alt="Entrainement en temps reel" client:load />
+    </div>
+  </main>
+</Layout>
