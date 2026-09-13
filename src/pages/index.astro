@@ -1,0 +1,535 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FeatureTab from "../components/FeatureTab";
+import HowItWorksTab from "../components/HowItWorksTab";
+import BenefitsCards from "../components/BenefitsCards";
+import CarouselTestimonials from "../components/CarouselTestimonials";
+import FAQs from "../components/FAQs";
+
+const about: { title: string; description: string; image: string }[] = [
+  {
+    title: "Le temps s'est déroulé",
+    description:
+      "Automatisez vos tâches et gagnez du temps : votre assistant IA transforme les tâches routinières en quelques secondes pour que vous puissiez vous concentrer sur votre croissance.",
+    image: "images/bgZEvWFyqIzjQSJmv4ytUskyjNc.jpg",
+  },
+  {
+    title: "Des mots qui coulent",
+    description:
+      "Brouillons, articles de blog et courriels rédigés avec clarté et rapidité — l'élégance du langage sans la difficulté.",
+    image: "images/90SenaC5dxwhBj330jLiE7wnyjU.jpg",
+  },
+  {
+    title: "Un guide silencieux",
+    description:
+      "Toujours présents pour vous aider à rester concentré – suggestions, rappels et idées au moment précis où vous en avez besoin.",
+    image: "images/UXYVZgG95Xo7GvB3Mj9Avi4ouU.jpg",
+  },
+];
+
+const features: { title: string; description: string; image: string }[] = [
+  {
+    title: "Création de contenu",
+    description: "Demandez-lui des stories, posts, et idées",
+    image: "images/k9rpWO1sLtG8iiQ3DPLipCWO4.jpg",
+  },
+  {
+    title: "Aide au codage",
+    description: "Résoudez les problèmes de votre code",
+    image: "images/gl1AmAer8Gqr1XoceJt3QJT1X8.jpg",
+  },
+  {
+    title: "Recherche",
+    description: "Recherchez les infos importantes",
+    image: "images/Oa5XWzCxeOrnYG2m62cgAZq4LE.jpg",
+  },
+  {
+    title: "Productivité",
+    description: "Restez concentré avec votre assistant",
+    image: "images/bEYHTLEMGSrPDYKasmCLGyydk.jpg",
+  },
+];
+
+const howitworks: {
+  title: string;
+  description: string;
+  logo: number;
+  image: string;
+}[] = [
+  {
+    title: "1 – Le prompt",
+    description: "Ecrivez votre prompt (question)",
+    logo: 0,
+    image: "images/cQgSHLEJcg9JwD4sAChNyOWRgU.jpg",
+  },
+  {
+    title: "2 – Réflexion",
+    description: "L'IA réfléchi pour vous répondre",
+    logo: 1,
+    image: "images/k9rpWO1sLtG8iiQ3DPLipCWO4.jpg",
+  },
+  {
+    title: "3 - Réponse",
+    description: "Sa réflexion est devant vous",
+    logo: 2,
+    image: "images/MtAPMlFG7WjGMRMvNEtWXiIXeI.jpg",
+  },
+];
+
+const benefits: { title: string; description: string; logo: number }[] = [
+  {
+    title: "le temps est inversé",
+    description:
+      "Automatisez les tâches routinières et libérez du temps facilement.",
+    logo: 0,
+  },
+  {
+    title: "Des mots en toute simplicité",
+    description:
+      "Transformez vos idées en écrits soignés — clairs, naturels et rapides.",
+    logo: 1,
+  },
+  {
+    title: "Mise au point guidée",
+    description:
+      "Restez concentré grâce à des incitations douces qui éloignent les distractions.",
+    logo: 2,
+  },
+  {
+    title: "Connaissance instantanée",
+    description:
+      "Condensez vos recherches et vos analyses en informations claires.",
+    logo: 3,
+  },
+  {
+    title: " Toujours disponible",
+    description:
+      "Votre partenaire discret, prêt à vous aider dès que vous en avez besoin.",
+    logo: 4,
+  },
+  {
+    title: "Confiance intégrée",
+    description:
+      "Protection dès la conception — vos données, vos idées, toujours en sécurité.",
+    logo: 5,
+  },
+];
+---
+
+<Layout
+  title="Lyse.AI, l'IA Open-Source"
+  description="Quand l'IA rencontre l'Open-Source"
+  ogImage="images/ogImage.jpg"
+>
+  <main class="relative isolate min-h-screen overflow-hidden">
+    <nav class="w-full bg-transparent px-4 py-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl flex items-center justify-center">
+        <a
+          href="./#hero"
+          class="flex items-center gap-2 mr-10 text-white hover:opacity-80 transition-opacity"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            role="presentation"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M 5.65 10.849 L 0.485 8.946 C 0.194 8.839 0 8.561 0 8.25 C 0 7.939 0.194 7.661 0.485 7.553 L 5.65 5.65 L 7.553 0.485 C 7.661 0.194 7.939 0 8.25 0 C 8.561 0 8.839 0.194 8.946 0.485 L 10.849 5.65 L 16.014 7.553 C 16.306 7.661 16.5 7.939 16.5 8.25 C 16.5 8.561 16.306 8.839 16.014 8.946 L 10.849 10.849 L 8.946 16.014 C 8.839 16.306 8.561 16.5 8.25 16.5 C 7.939 16.5 7.661 16.306 7.553 16.014 Z"
+              fill="transparent"
+              height="16.499524626865806px"
+              transform="translate(2.25 5.25)"
+              width="16.499524626865806px"></path>
+            <path
+              d="M 5.65 10.849 L 0.485 8.946 C 0.194 8.839 0 8.561 0 8.25 C 0 7.939 0.194 7.661 0.485 7.553 L 5.65 5.65 L 7.553 0.485 C 7.661 0.194 7.939 0 8.25 0 C 8.561 0 8.839 0.194 8.946 0.485 L 10.849 5.65 L 16.014 7.553 C 16.306 7.661 16.5 7.939 16.5 8.25 C 16.5 8.561 16.306 8.839 16.014 8.946 L 10.849 10.849 L 8.946 16.014 C 8.839 16.306 8.561 16.5 8.25 16.5 C 7.939 16.5 7.661 16.306 7.553 16.014 Z"
+              fill="transparent"
+              height="16.499524626865806px"
+              stroke-dasharray=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              stroke="currentColor"
+              transform="translate(2.25 5.25)"
+              width="16.499524626865806px"></path>
+            <path
+              d="M 0 0 L 0 4.5"
+              fill="transparent"
+              height="4.5px"
+              stroke-dasharray=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              stroke="currentColor"
+              transform="translate(16.5 1.5)"
+              width="1px"></path>
+            <path
+              d="M 0 0 L 0 3"
+              fill="transparent"
+              height="3px"
+              id="w6flwq75s"
+              stroke-dasharray=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              stroke="currentColor"
+              transform="translate(21 6.75)"
+              width="1px"></path>
+            <path
+              d="M 0 0 L 4.5 0"
+              fill="transparent"
+              height="1px"
+              stroke-dasharray=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              stroke="currentColor"
+              transform="translate(14.25 3.75)"
+              width="4.5px"></path>
+            <path
+              d="M 0 0 L 3 0"
+              fill="transparent"
+              height="1px"
+              id="KasWMFKns"
+              stroke-dasharray=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              stroke="currentColor"
+              transform="translate(19.5 8.25)"
+              width="3px"></path>
+          </svg>
+          <span class="font-bold text-lg tracking-wide">Lyse.AI</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="subpages/404.html"
+            class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          >
+            A propos
+          </a>
+          <a
+            href="subpages/train.html"
+            class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          >
+            Entraînement
+          </a>
+          <a
+            href="https://github.com/Juste1dev/Lyse.ai--LLM"
+            target="_blank"
+            class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          >
+            Github
+          </a>
+          <a
+            href="./#faq"
+            class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          >
+            FAQ
+          </a>
+        </div>
+
+        <div class="flex items-center">
+          <a
+            href="/404.html"
+            class="rounded-[48px] ml-10 px-6 py-2.5 text-sm font-medium text-[#dba0a0] bg-transparent hover:bg-[#dba0a0]/10 transition-colors"
+          >
+            Commencer
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      id="hero"
+      class="relative flex min-h-screen w-full flex-col items-center justify-center gap-20 overflow-hidden px-4 pb-16 md:pb-24"
+    >
+      <div
+        class="relative z-10 flex w-full max-w-125 flex-col items-center gap-8 text-center"
+      >
+        <div class="flex w-full flex-col items-center gap-4">
+          <h1
+            class="font-sans text-[40px] font-normal leading-[1.2] tracking-[-0.03em] text-white sm:text-[48px] lg:text-[56px]"
+          >
+            Quand l'IA rencontre l'Open-Source
+          </h1>
+
+          <p
+            class="text-center text-sm leading-[1.3] text-white/90 sm:text-base"
+          >
+            Une IA open-source pour vous aider à y voir plus clair
+          </p>
+        </div>
+
+        <a
+          href="#about"
+          class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white px-7 text-sm text-[#551A8B] transition duration-300"
+        >
+          Commencer
+        </a>
+      </div>
+
+      <a
+        href="#about"
+        class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-xs tracking-wide text-white/55 transition hover:text-white"
+      >
+        Descendez pour voir
+      </a>
+
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(232,255,156,0.07),transparent_38%)]"
+      >
+      </div>
+      <div>
+        <div
+          class="z-1 flex-none w-full h-full absolute top-0 left-0 overflow-hidden"
+          style="will-change: transform; opacity: 1; transform: scale(1.05)"
+        >
+          <div
+            style="
+				position: absolute;
+				border-radius: inherit;
+				corner-shape: inherit;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				"
+          >
+            <img
+              decoding="async"
+              width="2912"
+              height="1632"
+              sizes="(min-width: 1200px) 100vw, (min-width: 810px) and (max-width: 1199.98px) 100vw, (max-width: 809.98px) 100vw"
+              srcset="
+					images/LzblaeZXHMibAuWgYhFsP59pXk.png?scale-down-to=512&width=2912&height=1632   512w,
+					images/LzblaeZXHMibAuWgYhFsP59pXk.png?scale-down-to=1024&width=2912&height=1632 1024w,
+					images/LzblaeZXHMibAuWgYhFsP59pXk.png                                                   2048w,
+					images/LzblaeZXHMibAuWgYhFsP59pXk.png?width=2912&height=1632                        2912w
+				"
+              src="images/LzblaeZXHMibAuWgYhFsP59pXk.png?width=2912&height=1632"
+              style="
+					width: 100%;
+					height: 100%;
+					border-radius: inherit;
+					corner-shape: inherit;
+					object-position: center;
+					object-fit: cover;
+				"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="about"
+      class="mx-auto flex w-full max-w-300 flex-col gap-16 px-6 py-24 md:px-10 md:py-32 lg:px-16"
+    >
+      <div class="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-end">
+        <div>
+          <span
+            class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+            >À propos</span
+          >
+          <h2
+            class="max-w-2xl font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+          >
+            Exploitez une puissance pour écrire plus vite, mieux vous concentrer
+            et gagner des heures.
+          </h2>
+        </div>
+      </div>
+
+      <div
+        class="grid overflow-hidden rounded-3xl"
+        style={`grid-template-columns: repeat(${about.length}, minmax(0, 1fr));`}
+      >
+        {
+          about.map((ab) => (
+            <article class="p-2 md:p-1">
+              <img
+                src={ab.image}
+                width="352"
+                height="320"
+                alt={`${ab.title}`}
+                class="rounded-sm"
+                loading="lazy"
+              />
+              <p class="mb-4 mt-2 text-lg text-white">{ab.title}</p>
+              <p class="text-sm leading-7 text-white/55">{ab.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section
+      id="features"
+      class="mx-auto w-full max-w-300 px-6 py-24 md:px-10 md:py-32 lg:px-16"
+    >
+      <div class="mb-14 max-w-2xl">
+        <span
+          class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+          >Différents cas</span
+        >
+        <h2
+          class="font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+        >
+          Différents chemins à explorer, <span
+            style="color: rgb(133, 133, 133);"
+            >tous guidés par un compagnon silencieux.</span
+          >
+        </h2>
+      </div>
+
+      <FeatureTab features={features} client:load />
+    </section>
+
+    <section id="how-it-works" class="border-y">
+      <div
+        class="mx-auto grid w-full max-w-300 gap-16 px-6 py-24 md:px-10 md:py-32 lg:px-16"
+      >
+        <div>
+          <span
+            class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+            >Comment ça fonctionne ?</span
+          >
+          <h2
+            class="max-w-lg font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+          >
+            Un prompt, <span style="color: rgb(133, 133, 133);"
+              >trois étapes.</span
+            >
+          </h2>
+        </div>
+
+        <HowItWorksTab howitworks={howitworks} client:load />
+      </div>
+    </section>
+
+    <section
+      id="benefits"
+      class="mx-auto w-full max-w-300 px-6 py-24 md:px-10 md:py-32 lg:px-16"
+    >
+      <div class="mb-14 max-w-3xl">
+        <span
+          class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+          >Les avantages</span
+        >
+        <h2
+          class="font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+        >
+          Une puissance invisible à vos côtés, qui vous apporte des avantages
+          concrets au quotidien.
+        </h2>
+      </div>
+
+      <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <BenefitsCards benefits={benefits} />
+      </div>
+    </section>
+
+    <section id="testimonials" class="border-y border-white/10 bg-white/1.5">
+      <div
+        class="mx-auto w-full max-w-300 px-6 py-24 md:px-10 md:py-32 lg:px-16"
+      >
+        <div class="mb-12 max-w-2xl">
+          <span
+            class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+            >Testimonials</span
+          >
+          <h2
+            class="font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+          >
+            Ce que d'autres murmurent à propos de l'expérience
+          </h2>
+        </div>
+
+        <CarouselTestimonials client:visible />
+      </div>
+    </section>
+
+    <section
+      id="faq"
+      class="mx-auto w-full max-w-250 px-6 py-24 md:px-10 md:py-32"
+    >
+      <div class="mb-12 text-center">
+        <span
+          class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
+          >FAQ</span
+        >
+        <h2
+          class="font-sans text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl"
+        >
+          Vos questions, nos réponses
+        </h2>
+      </div>
+
+      <FAQs client:load />
+    </section>
+
+    <section id="final-cta" class="px-6 pb-24 md:px-10 md:pb-32 lg:px-16">
+      <div
+        class="mx-auto flex w-full max-w-300 flex-col border border-white/10 bg-white/2.5 px-6 py-20 md:px-10 md:py-28"
+        style="
+          border-radius: inherit;
+          corner-shape: inherit;
+          background-image: url(images/tWXpJzlIqUJNUp01qKLylcZ4s0.png);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          border: 0;"
+      >
+        <h2
+          class="font-sans text-4xl font-normal leading-none tracking-[-0.03em] text-white sm:text-5xl"
+        >
+          Essayez maintenant
+        </h2>
+        <p class="mt-5 max-w-xl text-sm leading-7 text-white/55 sm:text-base">
+          Cette IA est totallement gratuite, pourquoi pas la tester ?
+        </p>
+        <a
+          href="/404"
+          class="mt-8 w-26 inline-flex min-h-12 items-center justify-center rounded-full bg-[#e8ff9c] px-7 text-sm font-medium text-black transition hover:opacity-90"
+        >
+          Commencer
+        </a>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 px-6 py-10 md:px-10 lg:px-16">
+      <div
+        class="mx-auto grid w-full max-w-300 gap-10 md:grid-cols-[1fr_auto] md:items-end"
+      >
+        <div>
+          <a href="#hero" class="text-base text-white">Lyse.AI</a>
+          <p class="mt-2 text-sm text-white/45">
+            L'IA intelligente open-source
+          </p>
+          <p class="mt-5 text-xs text-white/35">
+            Remerciment à Arthur dans Framer pour son template
+          </p>
+        </div>
+
+        <nav
+          aria-label="Navigation du pied de page"
+          class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55"
+        >
+          <a href="#about" class="transition hover:text-white">A propos</a>
+          <a href="#features" class="transition hover:text-white"
+            >Fonctionnalités</a
+          >
+          <a
+            href="https://github.com/Juste1dev/Lyse.ai--LLM"
+            target="_blank"
+            rel="noreferrer"
+            class="transition hover:text-white">Github</a
+          >
+          <a href="#faq" class="transition hover:text-white">FAQ</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</Layout>
