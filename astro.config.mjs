@@ -9,7 +9,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [react()],
 
-  site: "https://marvideo2009.github.io/Lyse-AI-Community.github.io/",
+  site: "https://marvideo2009.github.io",
+  base: "/Lyse-AI-Community.github.io",
 
   vite: {
     plugins: [tailwindcss()]
