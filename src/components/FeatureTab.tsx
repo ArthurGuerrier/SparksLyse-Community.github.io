@@ -1,12 +1,17 @@
-import { Image } from "astro:assets";
-import featureImage1 from "../assets/images/feature1.jpg"
-import featureImage2 from "../assets/images/feature2.jpg"
-import featureImage3 from "../assets/images/feature3.jpg"
-import featureImage4 from "../assets/images/feature4.jpg"
+import { useState } from "react";
 import type { ImageMetadata } from "astro";
 
+import featureImage1 from "../assets/images/feature1.jpg";
+import featureImage2 from "../assets/images/feature2.jpg";
+import featureImage3 from "../assets/images/feature3.jpg";
+import featureImage4 from "../assets/images/feature4.jpg";
+
 export default function FeatureTab() {
-  const features: { title: string; description: string; image: ImageMetadata }[] = [
+  const features: {
+    title: string;
+    description: string;
+    image: ImageMetadata;
+  }[] = [
     {
       title: "Création de contenu",
       description: "Demandez-lui des stories, posts, et idées",
@@ -14,7 +19,7 @@ export default function FeatureTab() {
     },
     {
       title: "Aide au codage",
-      description: "Résoudez les problèmes de votre code",
+      description: "Résolvez les problèmes de votre code",
       image: featureImage2,
     },
     {
@@ -28,68 +33,188 @@ export default function FeatureTab() {
       image: featureImage4,
     },
   ];
-  const changeTabFeature = (e: React.MouseEvent) => {
-    const allTab = document.getElementById("feature-content")?.children;
-    const allTabHeader = document.getElementById("feature-header")?.children;
-    if (!allTab) return;
-    if (!allTabHeader) return;
-    for (let i = 0; i < allTab.length; i++) {
-      const element = allTab.item(i);
-      if (typeof element?.getAttribute("hidden") === "object") {
-        element.setAttribute("hidden", "");
-      }
-    }
-    for (let i = 0; i < allTabHeader.length; i++) {
-      const element = allTabHeader.item(i);
-      element?.classList.remove("border-b-2", "text-white");
-    }
-    document
-      .getElementById(e.currentTarget.id.replace("-header", "-feature-content"))
-      ?.removeAttribute("hidden");
-    e.currentTarget.classList.add("border-b-2", "text-white");
-  };
+
+  const [activeTab, setActiveTab] = useState(0);
+
+  const activeFeature = features[activeTab];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-1">
-      <div id="feature-header" className="flex text-white/45 border-b">
-        {features.map((feat, idx) => (
-          <p
-            id={`${feat.title}-header`}
-            key={`${feat.title}-header`}
-            className={`${idx === 0 ? "border-b-2 text-white" : ""} hover:border-b-2 p-2 hover:text-white cursor-pointer`}
-            onClick={changeTabFeature}
-          >
-            {feat.title}
-          </p>
-        ))}
+    <div>
+      <div
+        className="
+          flex
+          w-full
+          overflow-x-auto
+          border-b
+          border-white/10
+          text-white/45
+          scrollbar-none
+        "
+        role="tablist"
+        aria-label="Fonctionnalités"
+      >
+        {features.map((feature, idx) => {
+          const isActive = idx === activeTab;
+
+          return (
+            <button
+              key={feature.title}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActiveTab(idx)}
+              className={`
+                relative
+                shrink-0
+                cursor-pointer
+                whitespace-nowrap
+                px-3
+                py-3
+                text-sm
+                transition-colors
+                duration-200
+
+                sm:px-4
+                sm:text-base
+
+                md:px-5
+
+                ${isActive ? "text-white" : "hover:text-white"}
+
+                after:absolute
+                after:-bottom-px
+                after:left-0
+                after:h-0.5
+                after:w-full
+                after:origin-left
+                after:scale-x-0
+                after:bg-white
+                after:transition-transform
+                after:duration-200
+
+                ${isActive ? "after:scale-x-100" : ""}
+              `}
+            >
+              {feature.title}
+            </button>
+          );
+        })}
       </div>
-      <div id="feature-content">
-        {features.map((feat, idx) => (
-          <article
-            id={`${feat.title}-feature-content`}
-            key={feat.title}
-            className="items-center flex rounded-2xl bg-white/2.5 p-7 transition hover:border-white/20 hover:bg-white/4.5 md:p-9"
-            hidden={idx !== 0}
+
+      <div className="mt-4 sm:mt-6">
+        <article
+          key={activeFeature.title}
+          role="tabpanel"
+          className="
+            flex
+            w-full
+            flex-col
+            gap-6
+            rounded-2xl
+            border
+            border-white/5
+            bg-white/2.5
+            p-4
+            transition
+            hover:border-white/10
+            hover:bg-white/4.5
+
+            sm:p-6
+
+            md:flex-row
+            md:items-center
+            md:gap-8
+            md:p-8
+
+            lg:p-9
+          "
+        >
+          <div
+            className="
+              w-full
+              shrink-0
+              overflow-hidden
+              rounded-xl
+
+              md:w-[45%]
+              lg:w-[48%]
+            "
           >
             <img
-              src={feat.image.src}
-              alt={feat.title}
+              src={activeFeature.image.src}
+              alt={activeFeature.title}
               width={516}
               height={396.8}
-              className="rounded-sm"
               loading="lazy"
+              className="
+                block
+                h-auto
+                w-full
+                rounded-xl
+                object-cover
+                transition-transform
+                duration-500
+                hover:scale-[1.02]
+              "
             />
-            <div className="w-full ml-5">
-              <p className="mb-4 text-xl text-[#858585]">{feat.title}</p>
-              <p className="mb-8 max-w-md text-sm leading-7 text-white text-[20px]">
-                {feat.description}
-              </p>
-              <a href="#final-cta" className="text-sm text-[#e8ff9c]">
-                Commencer <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
-        ))}
+          </div>
+
+          <div
+            className="
+              flex
+              min-w-0
+              w-full
+              flex-col
+              items-start
+              md:flex-1
+            "
+          >
+            <p
+              className="
+                mb-2
+                text-lg
+                text-[#858585]
+
+                sm:text-xl
+              "
+            >
+              {activeFeature.title}
+            </p>
+
+            <p
+              className="
+                mb-6
+                max-w-md
+                text-base
+                leading-7
+                text-white
+
+                sm:mb-8
+                sm:text-lg
+
+                lg:text-xl
+              "
+            >
+              {activeFeature.description}
+            </p>
+
+            <a
+              href="#final-cta"
+              className="
+                inline-flex
+                items-center
+                gap-1
+                text-sm
+                text-[#e8ff9c]
+                transition-opacity
+                hover:opacity-70
+              "
+            >
+              Commencer
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   );
