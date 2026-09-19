@@ -11,15 +11,12 @@
   /*outline: 1px solid red !important;*/
 }
 
-/* *, *::before, *::after {
-  box-sizing: border-box;
-} */
-
 html,
 body {
   height: 100vh;
   margin: 0;
   width: 100vw;
+  scroll-behavior: smooth;
 }
 
 body {

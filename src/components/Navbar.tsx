@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Button from "@/components/ui/Button";
 
 export default function Navbar() {
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
@@ -83,99 +84,54 @@ export default function Navbar() {
             lg:gap-8
           "
         >
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="about"
-            className="
-              font-medium
-              text-gray-300
-              transition-colors
-              hover:text-white
-            "
+            rel="noreferrer"
+            target="_blank"
           >
             A propos
-          </a>
+          </Button>
 
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="train"
-            className="
-              font-medium
-              text-gray-300
-              transition-colors
-              hover:text-white
-            "
+            rel="noreferrer"
+            target="_blank"
           >
             Entraînement
-          </a>
+          </Button>
 
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="https://github.com/Lyse-AI-Community"
-            target="_blank"
             rel="noreferrer"
-            className="
-              font-medium
-              text-gray-300
-              transition-colors
-              hover:text-white
-            "
+            target="_blank"
           >
             Github
-          </a>
+          </Button>
 
-          <a
-            href="/#faq"
-            className="
-              font-medium
-              text-gray-300
-              transition-colors
-              hover:text-white
-            "
-          >
+          <Button variant="link" size="lg" href="#faq">
             FAQ
-          </a>
+          </Button>
         </div>
 
-        <a
-          href="chat"
-          className="
-            hidden
-            rounded-full
-            bg-transparent
-            px-5
-            py-2.5
-            text-sm
-            font-medium
-            text-[#dba0a0]
-            transition-colors
-            hover:bg-[#dba0a0]/10
-
-            sm:px-6
-
-            md:block
-          "
-        >
+        <Button variant="button-red" href="chat">
           Commencer
-        </a>
+        </Button>
 
-        <button
+        <Button
           id="mobile-menu-button"
           type="button"
-          aria-label={ isMobileNavbarOpen ? "Fermer le menu" : "Ouvrir le menu" }
+          size="lg"
+          aria-label={isMobileNavbarOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={isMobileNavbarOpen}
           aria-controls="mobile-menu"
-          onClick={() => setIsMobileNavbarOpen( !isMobileNavbarOpen, ) }
-          className="
-            flex
-            h-10
-            w-10
-            items-center
-            justify-center
-            rounded-lg
-            text-white
-            transition
-            hover:bg-white/10
-
-            md:hidden
-          "
+          onClick={() => setIsMobileNavbarOpen(!isMobileNavbarOpen)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition hover:bg-white/10 md:hidden"
         >
           {isMobileNavbarOpen ? (
             <svg
@@ -201,7 +157,7 @@ export default function Navbar() {
               <path d="M4 18h16" />
             </svg>
           )}
-        </button>
+        </Button>
       </div>
       <motion.div
         animate={isMobileNavbarOpen ? "open" : "closed"}
@@ -210,42 +166,46 @@ export default function Navbar() {
         className="absolute left-0 right-0 top-full z-40 w-full max-w-full overflow-hidden md:hidden bg-[#0a0a0a]"
       >
         <div className="flex flex-col gap-1 border-t border-white/5 w-[90%] pb-3 pt-3">
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="about"
-            className="rounded-lg px-4 py-3 font-medium text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+            rel="noreferrer"
+            className="rounded-lg"
+            target="_blank"
           >
             A propos
-          </a>
+          </Button>
 
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="train"
-            className="rounded-lg px-4 py-3 font-medium text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+            rel="noreferrer"
+            className="rounded-lg"
+            target="_blank"
           >
             Entraînement
-          </a>
+          </Button>
 
-          <a
+          <Button
+            variant="link"
+            size="lg"
             href="https://github.com/Lyse-AI-Community"
-            target="_blank"
             rel="noreferrer"
-            className="rounded-lg px-4 py-3 font-medium text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+            className="rounded-lg"
+            target="_blank"
           >
             Github
-          </a>
+          </Button>
 
-          <a
-            href="#faq"
-            className=" rounded-lg px-4 py-3 font-medium text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
-          >
+          <Button variant="link" size="lg" href="#faq" className="rounded-lg">
             FAQ
-          </a>
+          </Button>
 
-          <a
-            href="chat"
-            className="mt-2 rounded-full bg-[#dba0a0]/10 px-5 py-3 text-center text-sm font-medium text-[#dba0a0] transition-colors hover:bg-[#dba0a0]/20"
-          >
+          <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href="chat">
             Commencer
-          </a>
+          </Button>
         </div>
       </motion.div>
     </nav>
