@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-60 w-full border-b border-white/5 bg-[#0a0a0a]/80 px-4 py-3 backdrop-blur-xl sm:px-6 sm:py-4 lg:px-8">
+    <nav className="sticky top-0 z-60 w-full max-w-full overflow-x-clip border-b border-white/5 bg-[#0a0a0a]/80 px-4 py-3 backdrop-blur-xl sm:px-6 sm:py-4 lg:px-8">
       <div
         className="
           mx-auto
@@ -159,9 +159,10 @@ export default function Navbar() {
         <button
           id="mobile-menu-button"
           type="button"
-          aria-label="Ouvrir le menu"
-          aria-expanded="false"
+          aria-label={ isMobileNavbarOpen ? "Fermer le menu" : "Ouvrir le menu" }
+          aria-expanded={isMobileNavbarOpen}
           aria-controls="mobile-menu"
+          onClick={() => setIsMobileNavbarOpen( !isMobileNavbarOpen, ) }
           className="
             flex
             h-10
@@ -176,42 +177,37 @@ export default function Navbar() {
             md:hidden
           "
         >
-          <svg
-            id="menu-icon"
-            onClick={() => setIsMobileNavbarOpen(true)}
-            className={`h-6 w-6 ${isMobileNavbarOpen ? "hidden" : ""}`}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          >
-            <path d="M4 6h16" />
-            <path d="M4 12h16" />
-            <path d="M4 18h16" />
-          </svg>
-
-          <svg
-            id="close-icon"
-            onClick={() => setIsMobileNavbarOpen(false)}
-            className={`${isMobileNavbarOpen ? "" : "hidden"} h-6 w-6`}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          >
-            <path d="M6 6l12 12" />
-            <path d="M18 6L6 18" />
-          </svg>
+          {isMobileNavbarOpen ? (
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <path d="M6 6l12 12" /> <path d="M18 6L6 18" />
+            </svg>
+          ) : (
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <path d="M4 6h16" /> <path d="M4 12h16" />
+              <path d="M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
-
       <motion.div
         animate={isMobileNavbarOpen ? "open" : "closed"}
         variants={mobileNavbarVariants}
         id="mobile-menu"
-        className="absolute right-0 mx-auto w-1/2 min-w-60.25 max-w-5xl md:hidden bg-[#0a0a0a] z-40 opacity-0"
+        className="absolute left-0 right-0 top-full z-40 w-full max-w-full overflow-hidden md:hidden bg-[#0a0a0a]"
       >
         <div className="flex flex-col gap-1 border-t border-white/5 w-[90%] pb-3 pt-3">
           <a
