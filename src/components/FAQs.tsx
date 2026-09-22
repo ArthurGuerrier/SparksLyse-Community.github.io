@@ -17,7 +17,7 @@ const FAQS: FAQItem[] = [
   {
     id: 2,
     question: "Existe-t-il une formule gratuite ?",
-    answer: "Oui. l'ia est complètement gratuite et open-source avec crédit illimité, des promps sans limites et les meilleurs modèle de lyse ai et tout ça gratuitement."
+    answer: "Le site est actuellement présenté comme gratuit et open-source. Les limites éventuelles du service et de l'API doivent être vérifiées avant toute promesse d'accès illimité."
   },
   {
     id: 3,

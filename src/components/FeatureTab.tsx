@@ -199,7 +199,7 @@ export default function FeatureTab() {
             </p>
 
             <a
-              href="#final-cta"
+              href={`${import.meta.env.BASE_URL}/#final-cta`}
               className="
                 inline-flex
                 items-center

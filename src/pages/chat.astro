@@ -4,14 +4,14 @@ import "../styles/chat.css";
 ---
 
 <Layout
-  title="Chat — Lyse.AI"
-  description="Chatbot de démonstration Lyse.AI"
+  title="Chat - SparksLyse"
+  description="Chatbot de démonstration SparksLyse"
   ogImage="images/ogImage.jpg"
 >
   <main class="chat-shell">
     <div class="chat-intro">
       <h1 class="chat-title">
-        Discutez avec <span class="dim">Lyse.AI</span>
+        Discutez avec <span class="dim">SparksLyse</span>
       </h1>
     </div>
 
@@ -20,6 +20,7 @@ import "../styles/chat.css";
     <div class="chat-composer">
       <form id="composer-form">
         <div class="composer-card">
+          <label class="sr-only" for="composer-input">Votre prompt</label>
           <textarea
             id="composer-input"
             rows="1"
@@ -115,6 +116,10 @@ import "../styles/chat.css";
           Effacer la conversation
         </button>
       </div>
+      <p class="privacy-note">
+        Les messages sont transmis à l’API SparksLyse pour générer une réponse et ne sont pas conservés dans cette interface.
+        <a href={`${import.meta.env.BASE_URL}/politique-confidentialite`}>Voir la politique de confidentialité</a>.
+      </p>
     </div>
   </main>
 </Layout>
@@ -274,8 +279,6 @@ import "../styles/chat.css";
         stream: true,
       });
 
-      console.log("[STREAM RAW]", chunk);
-
       buffer += chunk;
 
       buffer = buffer.replace(/\r\n/g, "\n");
@@ -296,16 +299,12 @@ import "../styles/chat.css";
 
           const data = trimmed.slice(5).trim();
 
-          console.log("[SSE DATA]", data);
-
           if (!data || data === "[DONE]") {
             continue;
           }
 
           try {
             const json = JSON.parse(data);
-
-            console.log("[SSE JSON]", json);
 
             const token =
               json?.choices?.[0]?.delta?.content ??
@@ -318,13 +317,10 @@ import "../styles/chat.css";
               continue;
             }
 
-            console.log("[TOKEN]", token);
-
             fullResponse += token;
 
             onChunk(token);
-          } catch (error) {
-            console.error("[SSE JSON ERROR]", error, data);
+          } catch {
           }
         }
       }
@@ -361,8 +357,7 @@ import "../styles/chat.css";
           fullResponse += token;
           onChunk(token);
         }
-      } catch (error) {
-        console.error("[SSE FINAL ERROR]", error, data);
+      } catch {
       }
     }
 
@@ -547,7 +542,7 @@ import "../styles/chat.css";
   function addWelcomeMessage(): void {
     addMessage({
       role: "assistant",
-      content: "Bonjour 👋 Je suis Lyse.AI !",
+      content: "Bonjour 👋 Je suis SparksLyse !",
     });
   }
 

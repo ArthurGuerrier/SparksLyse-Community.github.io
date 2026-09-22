@@ -1,0 +1,16 @@
+# SparksLyse
+
+SparksLyse est un projet d'intelligence artificielle open source presente en francais.
+Le site explique le projet, ses fonctionnalites et propose un chat de demonstration.
+
+## Pages principales
+
+- Accueil: https://sparkslyse-community.github.io/
+- Chat de demonstration: https://sparkslyse-community.github.io/chat/
+- Etat d'entrainement: https://sparkslyse-community.github.io/train/
+- Mentions legales: https://sparkslyse-community.github.io/mentions-legales/
+- Politique de confidentialite: https://sparkslyse-community.github.io/politique-confidentialite/
+- Politique de cookies: https://sparkslyse-community.github.io/politique-cookies/
+- Conditions generales d'utilisation: https://sparkslyse-community.github.io/cgu/
+
+Le chat transmet les prompts a une API externe exploitee depuis marvideo.fr. Consultez la politique de confidentialite avant toute utilisation.

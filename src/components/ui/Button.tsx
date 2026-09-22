@@ -8,7 +8,7 @@ import type {
 const variants = {
     default: "",
     primary: "min-h-12 rounded-full border border-white/15 bg-white px-7 text-sm text-[#551A8B] transition duration-300",
-    link: "text-gray-300 hover:text-white hover:bg-white/5",
+    link: "text-gray-300 hover:text-white hover:bg-white/5 rounded-lg",
     "button-red": "hidden rounded-full bg-transparent px-5 py-2.5 text-sm font-medium text-[#dba0a0] transition-colors hover:bg-[#dba0a0]/10 sm:px-6 md:block",
     secondary: "bg-white/10 text-white hover:bg-white/20",
 } as const;

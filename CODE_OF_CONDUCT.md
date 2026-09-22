@@ -2,7 +2,7 @@
 
 ## Notre engagement
 
-Nous voulons que les contributions au projet Lyse.AI se déroulent dans un environnement ouvert, accueillant et respectueux, quels que soient l'origine, l'identité, l'expression de genre, l'orientation sexuelle, le handicap, l'apparence physique, l'âge, la religion, les compétences techniques ou la situation personnelle des participants.
+Nous voulons que les contributions au projet SparksLyse se déroulent dans un environnement ouvert, accueillant et respectueux, quels que soient l'origine, l'identité, l'expression de genre, l'orientation sexuelle, le handicap, l'apparence physique, l'âge, la religion, les compétences techniques ou la situation personnelle des participants.
 
 En participant à ce projet, vous acceptez de contribuer à un espace sûr, constructif et accessible à toutes et tous.
 

@@ -28,7 +28,7 @@ export default function Navbar() {
         "
       >
         <a
-          href="#hero"
+          href={`${import.meta.env.BASE_URL}/#hero`}
           className="
             flex
             shrink-0
@@ -70,7 +70,7 @@ export default function Navbar() {
               tracking-wide
             "
           >
-            Lyse.AI
+            SparksLyse
           </span>
         </a>
 
@@ -87,9 +87,8 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="about"
+            href={`${import.meta.env.BASE_URL}/#about`}
             rel="noreferrer"
-            target="_blank"
           >
             A propos
           </Button>
@@ -97,9 +96,8 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="train"
+            href={`${import.meta.env.BASE_URL}/train`}
             rel="noreferrer"
-            target="_blank"
           >
             Entraînement
           </Button>
@@ -107,19 +105,18 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="https://github.com/Lyse-AI-Community"
+            href="https://github.com/SparksLyse-Community"
             rel="noreferrer"
-            target="_blank"
           >
             Github
           </Button>
 
-          <Button variant="link" size="lg" href="#faq">
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}/#faq`}>
             FAQ
           </Button>
         </div>
 
-        <Button variant="button-red" href="chat">
+        <Button variant="button-red" href={`${import.meta.env.BASE_URL}/chat`}>
           Commencer
         </Button>
 
@@ -169,10 +166,9 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="about"
+            href={`${import.meta.env.BASE_URL}/#about`}
             rel="noreferrer"
             className="rounded-lg"
-            target="_blank"
           >
             A propos
           </Button>
@@ -180,10 +176,9 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="train"
+            href={`${import.meta.env.BASE_URL}/train`}
             rel="noreferrer"
             className="rounded-lg"
-            target="_blank"
           >
             Entraînement
           </Button>
@@ -191,7 +186,7 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href="https://github.com/Lyse-AI-Community"
+            href="https://github.com/SparksLyse-Community"
             rel="noreferrer"
             className="rounded-lg"
             target="_blank"
@@ -199,11 +194,11 @@ export default function Navbar() {
             Github
           </Button>
 
-          <Button variant="link" size="lg" href="#faq" className="rounded-lg">
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}/#faq`} className="rounded-lg">
             FAQ
           </Button>
 
-          <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href="chat">
+          <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href={`${import.meta.env.BASE_URL}/chat`}>
             Commencer
           </Button>
         </div>

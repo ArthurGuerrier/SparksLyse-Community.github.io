@@ -1,6 +1,6 @@
-# Site web de Lyse.AI
+# Site web de SparksLyse
 
-Site vitrine et prototype de chat pour Lyse.AI, un projet autour de l'intelligence artificielle et de l'open source. Le dépôt contient principalement un export statique réalisé avec Framer, complété par quelques scripts JavaScript et un serveur Node.js minimal pour le développement local.
+Site vitrine et prototype de chat pour SparksLyse, un projet autour de l'intelligence artificielle et de l'open source. Le dépôt contient principalement un export statique réalisé avec Framer, complété par quelques scripts JavaScript et un serveur Node.js minimal pour le développement local.
 
 ## État du projet
 
@@ -41,7 +41,7 @@ npx serve .
 
 | URL | Fichier | Description |
 | --- | --- | --- |
-| `/` | [`index.html`](index.html) | Page d'accueil Lyse.AI |
+| `/` | [`index.html`](index.html) | Page d'accueil SparksLyse |
 | `/chat.html` | [`chat.html`](chat.html) | Interface de chat de démonstration |
 | `/train.html` | [`subpages/train.html`](subpages/train.html) | Page secondaire exportée |
 | `/404.html` | [`subpages/404.html`](subpages/404.html) | Page affichée lorsqu'une ressource est introuvable |
@@ -101,6 +101,6 @@ Il n'y a pas encore de scripts `dev`, `build`, `preview`, `lint` ou `format`. Le
 
 ## Crédits
 
-Projet Framer Export / Lyse.AI v1 WEB.
+Projet Framer Export / SparksLyse v1 WEB.
 
 Merci au projet [FramerExport](https://github.com/danbenba/FramerExport) pour l'outil de conversion de Framer vers du code statique, ainsi qu'à Arthur pour son template Framer.

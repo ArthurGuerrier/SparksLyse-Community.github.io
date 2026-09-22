@@ -1,4 +1,4 @@
- # Guide de contribution
+# Guide de contribution
 
 Merci de votre intérêt pour la contribution à ce projet.
 
