@@ -28,7 +28,7 @@ export default function Navbar() {
         "
       >
         <a
-          href={`${import.meta.env.BASE_URL}/#hero`}
+          href={`${import.meta.env.BASE_URL}#hero`}
           className="
             flex
             shrink-0
@@ -87,7 +87,7 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href={`${import.meta.env.BASE_URL}/#about`}
+            href={`${import.meta.env.BASE_URL}#about`}
             rel="noreferrer"
           >
             A propos
@@ -96,7 +96,7 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href={`${import.meta.env.BASE_URL}/train`}
+            href={`${import.meta.env.BASE_URL}train`}
             rel="noreferrer"
           >
             Entraînement
@@ -111,12 +111,12 @@ export default function Navbar() {
             Github
           </Button>
 
-          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}/#faq`}>
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}#faq`}>
             FAQ
           </Button>
         </div>
 
-        <Button variant="button-red" href={`${import.meta.env.BASE_URL}/chat`}>
+        <Button variant="button-red" href={`${import.meta.env.BASE_URL}chat`}>
           Commencer
         </Button>
 
@@ -166,7 +166,7 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href={`${import.meta.env.BASE_URL}/#about`}
+            href={`${import.meta.env.BASE_URL}#about`}
             rel="noreferrer"
             className="rounded-lg"
           >
@@ -176,7 +176,7 @@ export default function Navbar() {
           <Button
             variant="link"
             size="lg"
-            href={`${import.meta.env.BASE_URL}/train`}
+            href={`${import.meta.env.BASE_URL}train`}
             rel="noreferrer"
             className="rounded-lg"
           >
@@ -194,11 +194,11 @@ export default function Navbar() {
             Github
           </Button>
 
-          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}/#faq`} className="rounded-lg">
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}#faq`} className="rounded-lg">
             FAQ
           </Button>
 
-          <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href={`${import.meta.env.BASE_URL}/chat`}>
+          <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href={`${import.meta.env.BASE_URL}chat`}>
             Commencer
           </Button>
         </div>
