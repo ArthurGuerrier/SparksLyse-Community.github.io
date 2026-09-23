@@ -13,7 +13,6 @@ const {
 
 const siteUrl = Astro.site ?? new URL("https://marvideo2009.github.io/Lyse-AI-Community.github.io/");
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
-const baseUrl = import.meta.env.BASE_URL;
 
 import "../styles/global.css";
 import "../styles/fonts.css";
@@ -102,7 +101,7 @@ import Navbar from "../components/Navbar";
       >
         <div>
           <a
-            href={`${baseUrl}/#hero`}
+            href={`${import.meta.env.BASE_URL}#hero`}
             class="
               text-base
               font-medium
@@ -134,42 +133,42 @@ import Navbar from "../components/Navbar";
           "
         >
           <a
-            href={`${baseUrl}/#about`}
+            href={`${import.meta.env.BASE_URL}#about`}
             class="transition hover:text-white"
           >
             A propos
           </a>
 
           <a
-            href={`${baseUrl}/#features`}
+            href={`${import.meta.env.BASE_URL}#features`}
             class="transition hover:text-white"
           >
             Fonctionnalités
           </a>
 
           <a
-            href={`${baseUrl}/mentions-legales`}
+            href={`${import.meta.env.BASE_URL}mentions-legales`}
             class="transition hover:text-white"
           >
             Mentions légales
           </a>
 
           <a
-            href={`${baseUrl}/politique-confidentialite`}
+            href={`${import.meta.env.BASE_URL}politique-confidentialite`}
             class="transition hover:text-white"
           >
             Confidentialité
           </a>
 
           <a
-            href={`${baseUrl}/politique-cookies`}
+            href={`${import.meta.env.BASE_URL}politique-cookies`}
             class="transition hover:text-white"
           >
             Cookies
           </a>
 
           <a
-            href={`${baseUrl}/cgu`}
+            href={`${import.meta.env.BASE_URL}cgu`}
             class="transition hover:text-white"
           >
             CGU
@@ -185,7 +184,7 @@ import Navbar from "../components/Navbar";
           </a>
 
           <a
-            href={`${baseUrl}/#faq`}
+            href={`${import.meta.env.BASE_URL}#faq`}
             class="transition hover:text-white"
           >
             FAQ
