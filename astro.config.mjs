@@ -11,8 +11,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [react(), sitemap()],
 
-  site: "https://marvideo2009.github.io",
-  base: "/Lyse-AI-Community.github.io",
+  site: "https://sparkslyse-community.github.io/",
 
   vite: {
     plugins: [tailwindcss()]
