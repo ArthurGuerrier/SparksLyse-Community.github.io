@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [react(), sitemap()],
 
-  site: 'https://sparkslyse-community.github.io/',
+  site: '/SparksLyse-Community.github.io/',
   
   base: '/SparksLyse-Community.github.io/',
 
