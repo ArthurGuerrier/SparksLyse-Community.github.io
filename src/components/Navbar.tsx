@@ -114,6 +114,10 @@ export default function Navbar() {
           <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}#faq`}>
             FAQ
           </Button>
+
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}blog`}>
+            Blog
+          </Button>
         </div>
 
         <Button variant="button-red" href={`${import.meta.env.BASE_URL}chat`}>
@@ -196,6 +200,10 @@ export default function Navbar() {
 
           <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}#faq`} className="rounded-lg">
             FAQ
+          </Button>
+
+          <Button variant="link" size="lg" href={`${import.meta.env.BASE_URL}blog`} className="rounded-lg">
+            Blog
           </Button>
 
           <Button variant="button-red" className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!" href={`${import.meta.env.BASE_URL}chat`}>
