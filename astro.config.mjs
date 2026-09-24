@@ -9,6 +9,8 @@ export default defineConfig({
 
   site: 'https://sparkslyse-community.github.io/',
 
+  base: "/lyseai/previewsite/",
+
   vite: {
     plugins: [tailwindcss()]
   }
