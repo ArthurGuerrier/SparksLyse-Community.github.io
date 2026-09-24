@@ -21,6 +21,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      # Vérification explicite de l'environnement
+      - name: Verify package.json exists
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -la
+          if [ ! -f package.json ]; then
+            echo "ERROR: package.json not found!"
+            exit 1
+          fi
+          cat package.json
+      
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -30,8 +41,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          # On retire le cache explicite pour éviter les conflits pnpm
-          # cache: 'pnpm' 
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
