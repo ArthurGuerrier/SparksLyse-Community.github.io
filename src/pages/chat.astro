@@ -93,17 +93,22 @@ import "../styles/chat.css";
             </div>
 
             <button class="send-btn" id="send-btn" type="submit">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="6 11 12 5 18 11"></polyline>
-              </svg>
+              <span class="send-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="6 11 12 5 18 11"></polyline>
+                </svg>
+              </span>
+              <span class="send-loading" aria-hidden="true">
+                <div class="loading-square"></div>
+              </span>
             </button>
           </div>
         </div>
@@ -448,14 +453,13 @@ import "../styles/chat.css";
 
   function setSending(sending: boolean): void {
     state.sending = sending;
-
+    
     const sendButton = elements.sendButton;
-
     if (!sendButton) return;
 
-    sendButton.disabled = sending;
-
     sendButton.setAttribute("aria-busy", String(sending));
+
+    updateSendButtonState();
   }
 
   async function handleSubmit(event: SubmitEvent): Promise<void> {
@@ -578,6 +582,11 @@ import "../styles/chat.css";
 
     form.addEventListener("submit", handleSubmit);
 
+    input.addEventListener("input", () => {
+      autoGrow();
+      updateSendButtonState();
+    });
+
     input.addEventListener("input", autoGrow);
 
     input.addEventListener("keydown", handleInputKeydown);
@@ -594,7 +603,26 @@ import "../styles/chat.css";
 
     elements.input?.focus();
     autoGrow();
+
+    updateSendButtonState(); 
   }
+
+
+  function updateSendButtonState(): void {
+    const input = elements.input;
+    const sendButton = elements.sendButton;
+
+    if (!input || !sendButton) return;
+
+    const isEmpty = input.value.trim().length === 0;
+    
+    if (isEmpty || state.sending) {
+      sendButton.disabled = true;
+    } else {
+      sendButton.disabled = false;
+    }
+  }
+  
 
   void init();
 </script>
