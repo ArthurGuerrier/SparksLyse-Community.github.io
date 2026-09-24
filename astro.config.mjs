@@ -7,9 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [react(), sitemap()],
 
-  site: '/SparksLyse-Community.github.io/',
-  
-  base: '/SparksLyse-Community.github.io/',
+  site: 'https://sparkslyse-community.github.io/',
 
   vite: {
     plugins: [tailwindcss()]
