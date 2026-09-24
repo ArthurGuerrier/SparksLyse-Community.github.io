@@ -453,14 +453,13 @@ import "../styles/chat.css";
 
   function setSending(sending: boolean): void {
     state.sending = sending;
-
+    
     const sendButton = elements.sendButton;
-
     if (!sendButton) return;
 
-    sendButton.disabled = sending;
-
     sendButton.setAttribute("aria-busy", String(sending));
+
+    updateSendButtonState();
   }
 
   async function handleSubmit(event: SubmitEvent): Promise<void> {
