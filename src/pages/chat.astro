@@ -614,7 +614,6 @@ import "../styles/chat.css";
 
     if (!input || !sendButton) return;
 
-    // Si l'input est vide OU qu'on est déjà en train d'envoyer -> on désactive
     const isEmpty = input.value.trim().length === 0;
     
     if (isEmpty || state.sending) {

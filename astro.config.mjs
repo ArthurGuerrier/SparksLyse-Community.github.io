@@ -7,10 +7,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [react(), sitemap()],
 
-  // URL de base de ton compte GitHub
-  site: 'https://arthurguerrier.github.io',
+  site: 'https://sparkslyse-community.github.io/',
   
-  // NOM EXACT DU REPO (obligatoire !)
   base: '/SparksLyse-Community.github.io/',
 
   vite: {
