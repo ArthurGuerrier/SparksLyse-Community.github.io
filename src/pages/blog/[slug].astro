@@ -1,0 +1,33 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+  title="SparksLyse, l'IA Open-Source"
+  description={`${post.data.title}`}
+  ogImage="images/ogImage.jpg"
+>
+  <main
+    class="legal-page"
+  >
+    <h1 class="text-5xl">{post.data.title}</h1>
+    <p class="mt-2">
+      Publié le {post.data.pubDate.toLocaleDateString("fr-FR")}
+    </p>
+    <article class="bg-[#0a0a0a]/30 rounded-md w-fit px-10 py-5 justify-center mt-6 legal-content">
+      <Content />
+    </article>
+  </main>
+</Layout>
