@@ -20,14 +20,14 @@ const { Content } = await render(post);
   ogImage="images/ogImage.jpg"
 >
   <main
-    class="flex flex-col items-center justify-start text-center min-h-screen pt-12"
+    class="legal-page"
   >
     <h1 class="text-5xl">{post.data.title}</h1>
     <p class="mt-2">
       Publié le {post.data.pubDate.toLocaleDateString("fr-FR")}
     </p>
-    <div class="bg-[#0a0a0a]/30 rounded-md w-fit px-10 py-5 text-center justify-center mt-6">
+    <article class="bg-[#0a0a0a]/30 rounded-md w-fit px-10 py-5 justify-center mt-6 legal-content">
       <Content />
-    </div>
+    </article>
   </main>
 </Layout>
