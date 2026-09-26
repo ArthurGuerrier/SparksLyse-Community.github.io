@@ -92,7 +92,7 @@ import "../styles/chat.css";
               </button>
             </div>
 
-            <button class="send-btn" id="send-btn" type="submit">
+            <button class="send-btn" id="send-btn" type="submit" disabled>
               <span class="send-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -122,7 +122,9 @@ import "../styles/chat.css";
         </button>
       </div>
       <p class="privacy-note">
-        Les messages sont transmis à l’API SparksLyse pour générer une réponse et ne sont pas conservés dans cette interface.
+        <span class="privacy-note-content">
+          Les messages sont transmis à l’API SparksLyse pour générer une réponse et ne sont pas conservés dans cette interface.
+        </span>
         <a href={`${import.meta.env.BASE_URL}politique-confidentialite`}>Voir la politique de confidentialité</a>.
       </p>
     </div>
