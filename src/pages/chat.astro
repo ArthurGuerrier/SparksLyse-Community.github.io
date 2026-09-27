@@ -355,7 +355,7 @@ import "../styles/chat.css";
     const bubble = document.createElement("div");
 
     bubble.className =
-      "border border-white/10 rounded-[20px] p-3.5 px-4 " +
+      "message-bubble border border-white/10 rounded-[20px] p-3.5 px-4 " +
       "text-[14.5px] leading-relaxed max-w-[620px]";
 
     if (role === "user") {
@@ -463,7 +463,7 @@ import "../styles/chat.css";
 
       const bubble = assistantElement.querySelector("div:nth-child(2)");
 
-      const paragraph = bubble?.querySelector("p");
+      const paragraph = assistantElement.querySelector(".message-bubble p");
 
       if (!paragraph) {
         throw new Error("Impossible de créer la réponse du chatbot.");
